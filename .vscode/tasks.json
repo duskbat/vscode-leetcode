@@ -9,12 +9,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "args": [
-                "run",
-                "compile",
-                "--loglevel",
-                "silent"
-            ],
+            "args": ["run", "compile", "--loglevel", "silent"],
             "isBackground": true,
             "presentation": {
                 "reveal": "silent"
@@ -25,7 +20,17 @@
             "type": "npm",
             "script": "lint",
             "problemMatcher": {
-                "base": "$tslint5",
+                "owner": "tslint",
+                "pattern": [
+                    {
+                        "regexp": "^([^\\s].*)\\((\\d+),(\\d+)\\):\\s+(error|warning|info)\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                ],
                 "fileLocation": "absolute"
             }
         }

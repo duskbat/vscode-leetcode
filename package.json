@@ -299,6 +299,27 @@
                         "scope": "application",
                         "description": "Hide solved problems."
                     },
+                    "leetcode.hide": {
+                        "type": "array",
+                        "default": [],
+                        "scope": "application",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "AC",
+                                "NotAC",
+                                "Unknown",
+                                "Locked"
+                            ],
+                            "enumDescriptions": [
+                                "已解答",
+                                "尝试过",
+                                "待完成",
+                                "Locked"
+                            ]
+                        },
+                        "description": "Hide problems."
+                    },
                     "leetcode.defaultLanguage": {
                         "type": "string",
                         "enum": [

@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 
 import { workspace, WorkspaceConfiguration } from "vscode";
-import { DescriptionConfiguration } from "../shared";
+import { DescriptionConfiguration, ProblemState } from "../shared";
 
 export function getWorkspaceConfiguration(): WorkspaceConfiguration {
     return workspace.getConfiguration("leetcode");
@@ -10,6 +10,28 @@ export function getWorkspaceConfiguration(): WorkspaceConfiguration {
 
 export function shouldHideSolvedProblem(): boolean {
     return getWorkspaceConfiguration().get<boolean>("hideSolved", false);
+}
+
+export function shouldHideProblem(): Set<number> {
+    const statusArr: string[] = getWorkspaceConfiguration().get<string[]>("hide", []);
+    const res: Set<number> = new Set<number>();
+    for (const s of statusArr) {
+        switch (s) {
+            case "AC":
+                res.add(ProblemState.AC);
+                break;
+            case "NotAC":
+                res.add(ProblemState.NotAC);
+                break;
+            case "Unknown":
+                res.add(ProblemState.Unknown);
+                break;
+            case "Locked":
+                res.add(ProblemState.Locked);
+                break;
+        }
+    }
+    return res;
 }
 
 export function getWorkspaceFolder(): string {
