@@ -59,7 +59,6 @@ typings/
 
 # Output
 out
-*.vsix
 .vscode-test
 
 # Mac
