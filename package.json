@@ -293,12 +293,6 @@
             {
                 "title": "LeetCode",
                 "properties": {
-                    "leetcode.hideSolved": {
-                        "type": "boolean",
-                        "default": false,
-                        "scope": "application",
-                        "description": "Hide solved problems."
-                    },
                     "leetcode.hide": {
                         "type": "array",
                         "default": [],
